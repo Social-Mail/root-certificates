@@ -11,16 +11,12 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0
-      - name: Restore
-        run: dotnet restore ExtractAll/ExtractAll.csproj
-      - name: Publish
-        run: dotnet publish ExtractAll/ExtractAll.csproj
       - name: Make Dir
         run: mkdir ./win-certs
       - name: Make Dir
         run: cd ./win-certs
       - name: Extract Certs
-        run: ../ExtractAll/bin/Release/net8.0/publish/ExtractAll.exe
+        run: dotnet run ..\ExtractAll\ExtractAll.csproj
       - name: Move up
         run: cd ..
       - uses: actions/upload-artifact@v4
