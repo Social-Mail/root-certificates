@@ -11,8 +11,10 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0
-      - name: Display dotnet version
+      - name: Restore
         run: dotnet restore ExtractAll/ExtractAll.csproj
+      - name: Build
+        run: dotnet build ExtractAll/ExtractAll.csproj
       - name: Make Dir
         run: mkdir ./win-certs
       - name: Make Dir
@@ -28,6 +30,7 @@ jobs:
   
   build-docker:
     runs-on: ubuntu-latest
+    needs: build-win
     steps:
     - name: Set output
       id: vars
