@@ -16,7 +16,7 @@ jobs:
       - name: Make Dir
         run: cd ./win-certs
       - name: Extract Certs
-        run: dotnet run ..\ExtractAll\ExtractAll.csproj
+        run: dotnet run --project ..\ExtractAll\ExtractAll.csproj
       - name: Move up
         run: cd ..
       - uses: actions/upload-artifact@v4
