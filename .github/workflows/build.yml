@@ -18,8 +18,7 @@ jobs:
       - name: Make Dir
         run: cd ./win-certs
       - name: Extract Certs
-        working-directory: ./win-certs
-        run: ../get-certs.ps1
+        run: ./get-certs.ps1
       - uses: actions/upload-artifact@v4
         with:
           name: win-certs
