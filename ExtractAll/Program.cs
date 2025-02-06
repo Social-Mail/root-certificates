@@ -5,14 +5,22 @@ namespace ExtractAll;
 
 internal class Program
 {
+
+    static int counter = 0;
     static void Main(string[] args)
     {
-        var store = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+        Collect(StoreName.Root);
+        Collect(StoreName.AuthRoot);
+        Collect(StoreName.CertificateAuthority);
+    }
+
+    private static void Collect(StoreName storeName)
+    {
+        var store = new X509Store(storeName, StoreLocation.LocalMachine);
         store.Open(OpenFlags.ReadOnly);
 
         if (store.Certificates.Count > 0)
         {
-            var counter = 0;
             foreach (var certificate in store.Certificates)
             {
                 counter++;
