@@ -13,14 +13,14 @@ jobs:
           dotnet-version: 8.0
       - name: Restore
         run: dotnet restore ExtractAll/ExtractAll.csproj
-      - name: Build
-        run: dotnet build ExtractAll/ExtractAll.csproj
+      - name: Publish
+        run: dotnet publish ExtractAll/ExtractAll.csproj
       - name: Make Dir
         run: mkdir ./win-certs
       - name: Make Dir
         run: cd ./win-certs
       - name: Extract Certs
-        run: ../ExtractAll/bin/Debug/net8.0/ExtractAll.exe
+        run: ../ExtractAll/bin/Release/net8.0/ExtractAll.exe
       - name: Move up
         run: cd ..
       - uses: actions/upload-artifact@v4
