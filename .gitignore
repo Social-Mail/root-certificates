@@ -128,3 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+ExtractAll/.vs/
+ExtractAll/bin/
+ExtractAll/obj/
