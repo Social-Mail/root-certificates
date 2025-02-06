@@ -20,7 +20,7 @@ jobs:
       - name: Make Dir
         run: cd ./win-certs
       - name: Extract Certs
-        run: ../ExtractAll/bin/Release/net8.0/ExtractAll.exe
+        run: ../ExtractAll/bin/Release/net8.0/publish/ExtractAll.exe
       - name: Move up
         run: cd ..
       - uses: actions/upload-artifact@v4
