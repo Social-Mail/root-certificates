@@ -1,3 +1,3 @@
 FROM alpine
-WORKDIR /data
+WORKDIR /root-certs
 COPY data .
