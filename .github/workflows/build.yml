@@ -7,6 +7,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Setup dotnet 8.0
         uses: actions/setup-dotnet@v4
         with:
@@ -17,7 +19,7 @@ jobs:
         run: cd ./win-certs
       - name: Extract Certs
         working-directory: ./win-certs
-        run: dotnet run --project ./ExtractAll/ExtractAll.csproj
+        run: dotnet run --project ../ExtractAll/ExtractAll.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: win-certs
